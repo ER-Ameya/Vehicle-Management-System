@@ -1,0 +1,21 @@
+{% extends 'vehicle\base.html' %}
+
+{% block content %}
+  <h1>{{ vehicle.vehicle_number }}</h1>
+  <p><strong>Type:</strong> {{ vehicle.vehicle_type }}</p>
+  <p><strong>Model:</strong> {{ vehicle.vehicle_model }}</p>
+  <p><strong>Description:</strong></p>
+  <p>{{ vehicle.vehicle_description }}</p>
+  {% if user_group == 'SA'  %}
+  <p>User Group: {{ user_group }}</p>
+  <p><a href="{% url 'vehicle_edit' pk=vehicle.pk %}">Edit</a> | <a href="{% url 'vehicle_delete' pk=vehicle.pk %}">Delete</a></p>
+  {% endif %}
+  {% if user_group == 'A'  %}
+  <p>User Group: {{ user_group }}</p>
+  <p><a href="{% url 'vehicle_edit' pk=vehicle.pk %}">Edit</a> </p>
+  {% endif %}
+
+
+{% endblock %}
+
+
