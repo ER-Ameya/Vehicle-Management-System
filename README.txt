@@ -6,7 +6,7 @@
 
 4. Install the required dependencies using the command pip install -r requirements.txt.
 
-5. Create the database tables by running the command python manage.py migrate.
+5. Create the database tables by running the command python manage.py makemigrations / migrate.
 
 6. Create a superuser by running the command python manage.py createsuperuser and following the prompts.
 
