@@ -1,0 +1,40 @@
+{% extends 'vehicle/base.html' %}
+
+{% block content %}
+
+  <h1>Vehicle List</h1>
+  <p><a href="{% url 'vehicle_new' %}">Add Vehicle</a></p>
+  <ul>
+    {% for vehicle in vehicles %}
+      <li><a href="{% url 'vehicle_detail' pk=vehicle.pk %}">{{ vehicle.vehicle_number }}</a></li>
+    {% empty %}
+      <li>No vehicles yet.</li>
+    {% endfor %}
+  </ul>
+
+  <div class="pagination">
+    <span class="step-links">
+        {% if vehicles.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ vehicles.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current-page">
+            Page {{ vehicles.number }} of {{ vehicles.paginator.num_pages }}.
+        </span>
+
+        {% if vehicles.has_next %}
+            <a href="?page={{ vehicles.next_page_number }}">next</a>
+            <a href="?page={{ vehicles.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+  </div>
+
+  {% load static %}
+
+  <link rel="stylesheet" href="{% static 'accounts/css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'accounts/css/bootstrap.min.css' %}">
+  <script src="{% static 'accounts/css/style.css' %}"></script>
+
+
+{% endblock %}

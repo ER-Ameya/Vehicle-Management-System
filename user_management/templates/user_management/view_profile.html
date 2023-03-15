@@ -1,0 +1,10 @@
+{% extends 'user_management\base.html' %}
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Profile</h1>
+  <p><strong>Username:</strong> {{ user.username }}</p>
+  <p><strong>Email:</strong> {{ user.email }}</p>
+  <a href="{% url 'edit_profile' %}">Edit Profile</a><br>
+  <a href="{% url 'change_password' %}">Change Password</a>
+{% endblock %}

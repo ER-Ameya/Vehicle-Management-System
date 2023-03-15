@@ -1,0 +1,31 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+
+    <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="{% static 'accounts/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'accounts/css/style.css' %}">
+</head>
+{% csrf_token %}
+<body>
+
+<!-- Navigation bar -->
+<nav class="navbar">
+    <a class="navbar-brand">Vehicle Management</a>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    {% block content %}
+    {% endblock %}
+</div>
+
+<!-- Link to your JS file -->
+<script src="{% static 'accounts/js/script.js' %}"></script>
+
+</body>
+</html>
