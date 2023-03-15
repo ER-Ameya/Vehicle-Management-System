@@ -10,8 +10,8 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         # create groups
         groups = [
-            {'name': 'Super Admin', 'permissions': []},
-            {'name': 'Admin', 'permissions': []},
+            {'name': 'Super Admin', 'permissions': ['add_userprofile', 'change_userprofile', 'delete_userprofile', 'view_userprofile']},
+            {'name': 'Admin', 'permissions': ['change_userprofile', 'view_userprofile']},
             {'name': 'User', 'permissions': ['view_userprofile']},
         ]
         for group in groups:

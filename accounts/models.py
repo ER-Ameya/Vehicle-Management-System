@@ -14,3 +14,6 @@ class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='accounts_profile', default=User.objects.first().id)
 
     role = models.CharField(max_length=2, choices=role_choices, default='U')
+
+
+ 
