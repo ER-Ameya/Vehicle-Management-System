@@ -12,4 +12,5 @@ class UserProfile(models.Model):
     role = models.CharField(max_length=2, choices=role_choices)
 
     def __str__(self):
+        print(self.user.usename)
         return self.user.username
